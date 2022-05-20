@@ -5,8 +5,8 @@ import org.json.simple.JSONObject;
 
 import java.util.*;
 
-/** A topology class which has topology id and its components or devices. */
-class Topology {
+/** A topology class which has topology id and its components (Devices). */
+public class Topology {
     private String id;
     private List<Component> components;
 
@@ -35,8 +35,7 @@ class Topology {
     private void addComponent(JSONObject componentJson) {
         String deviceType = (String) componentJson.get("type");
         String deviceId  = (String) componentJson.get("id");
-        JSONObject netlist= (JSONObject) componentJson.get("netlist");
-        //TODO component can't be initialipzed here. it violates single resbonsibilty
+        JSONObject netlist = (JSONObject) componentJson.get("netlist");
         Component component = new Component(deviceType, deviceId);
         components.add(component);
         component.addNetlist(netlist);
