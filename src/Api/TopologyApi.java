@@ -1,4 +1,6 @@
 package Api;
+import Topology.Topology;
+import Topology.Component;
 import java.util.List;
 
 /** An API which does the following:
@@ -7,7 +9,7 @@ import java.util.List;
  3. Execute operations on topologies.
  */
 
-public interface TopologyApiInterface {
+public interface TopologyApi{
     /* Read a topology from a given JSON file and store it in the memory, return true if stored successfully
     and false otherwise. */
     boolean readJson(String jsonFile);
@@ -22,10 +24,10 @@ public interface TopologyApiInterface {
     /* Delete a given topology from memory. */
     void deleteTopology(String topologyId);
 
-    /* Query about which devices are in a given topology.*/
+    /* Query about which devices (Components) are in a given topology.*/
     List<Component> queryDevices(String topologyId);
 
-    /* Query about which devices are connected to a given netlist node in
+    /* Query about which devices (Components) are connected to a given netlist node in
      a given topology. */
     List<Component> queryDevicesWithNetlistNode(String topologyId, String NetlistNode);
 }

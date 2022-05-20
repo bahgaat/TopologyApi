@@ -1,4 +1,4 @@
-package Api;
+package Topology;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -10,7 +10,7 @@ public class Topology {
     private String id;
     private List<Component> components;
 
-    Topology(String id) {
+    public Topology(String id) {
         this.id = id;
     }
 
@@ -18,12 +18,12 @@ public class Topology {
         return id;
     }
 
-    List<Component> getComponents() {
+    public List<Component> getComponents() {
         return this.components;
     }
 
 
-    void setComponents(JSONArray componentsJson) {
+    public void setComponents(JSONArray componentsJson) {
         this.components = new ArrayList<>() ;
         Iterator<JSONObject> iterator = componentsJson.iterator();
         while (iterator.hasNext()) {
@@ -42,7 +42,7 @@ public class Topology {
     }
 
 
-    List<Component> queryComponentsWithNetlistNode(String netlistNode) {
+    public List<Component> queryComponentsWithNetlistNode(String netlistNode) {
         List<Component> componentsConnectedToNetlistNode = new ArrayList<>();
         for (int i = 0; i < components.size(); i++) {
             Component component = components.get(i);

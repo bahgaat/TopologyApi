@@ -2,6 +2,9 @@ package Api;
 
 import java.io.FileNotFoundException;
 import java.util.*;
+
+import Topology.Topology;
+import Topology.Component;
 import org.json.simple.JSONObject;
 import java.io.FileReader;
 import java.io.IOException;
@@ -9,12 +12,12 @@ import java.io.FileWriter;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-/** TopologyApi class which implements TopologyApiinterface and is responsible for
+/** TopologyApi which implements TopologyApi and is responsible for
  1. Read and write topologies to and from disk.
  2. Stores multiple topologies in memory.
  3. Execute operations on topologies.
  */
-public class TopologyApi implements TopologyApiInterface {
+public class TopologyApiImpl implements TopologyApi {
     private HashMap<String, JSONObject> topologyIdToJsonObject = new HashMap<>();
     private HashMap<String, Topology> topologyIdToObject = new HashMap<>();
     private List<Topology> topologies = new ArrayList<>();
